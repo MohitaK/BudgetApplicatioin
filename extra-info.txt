@@ -1,0 +1,61 @@
+https://blog.garstasio.com/you-dont-need-jquery/dom-manipulation/
+splice
+forEach
+map
+slice
+removeChild
+
+
+Lecture 104 ---
+var in ES5 are function scoped (will work outside if/for block in same function)
+let and const are blocked scope (will work only inside same block if/for)
+  -- to make blocked let const work, define them inside the function,
+     outside the block
+  -- cannot use variables until they are defined
+	- Not defined error will be thrown, unlike in var ES5,
+		where it will be displayed as undefined (exec context)
+	- temporal dead zone - variables cannot be used until declared
+  -- block is defined using curly brackets {}
+
+
+
+Lecture 106 ---
+No need to use + to join strings, instead
+console.log('This is ${firstName}. He was born in ${year}');
+(' $ ') known as Template Literal
+String Methods --
+  -- const n = '${firstName'}
+  -- n.startsWith('J') will return true/false depending on first char.
+  -- n.endsWith('th')
+  -- n.includes(' ')
+  -- (firstName.repeat(5)) -> JohnJohnJohnJohnJohn
+  -- ('${firstName} '.repeat(3)) -> John John John
+
+
+
+Lecture 107 ---
+Arrow Functions =>
+const ages6 = years.map(el => 2018 - el); \\lesser code
+const ages5 = years.map(function(el) {
+	return 2018 - el;
+}
+
+Or with 2 arguments,
+let ages6 = years.map((el, index) => 'Ages are ${index}: ${2018 - el}');
+console.log(ages6);
+
+Or if multiple line of code in arrow function, use curly {} and return
+at the end,
+let ages6 = years.map((el, index) => {
+	const now = new Date().getFullYear();
+	const age = now - el;
+	return 'Ages are ${index}: ${age}'
+}
+console.log(ages6);
+
+
+
+Lecture 108 ---
+Arrow func don't have a this keyword, they share it with the func they
+are written in, which is called as lexical this variable.
+Call, Bind Apply Methods
